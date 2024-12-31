@@ -14,5 +14,13 @@
     "department": "Human Resources",
     "status": "On Leave",
     "joiningDate": "2021-08-10"
+  },
+  {
+    "id": 3,
+    "name": "Adam Smith",
+    "jobTitle": "CEO",
+    "department": "Management",
+    "status": "Resigned",
+    "joiningDate": "2021-08-10"
   }
 ]

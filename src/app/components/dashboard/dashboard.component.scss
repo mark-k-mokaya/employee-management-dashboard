@@ -1,0 +1,147 @@
+@use "../../../styles/variables";
+@use "../../../styles/global.scss";
+
+.employee-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      .icon {
+        position: absolute;
+        margin: 8px 10px;
+        color: variables.$grey;
+      }
+
+      input {
+        height: fit-content;
+        border: 2px solid variables.$grey;
+        padding: 8px;
+        border-radius: 1.25rem;
+        outline: none;
+        font-size: 1rem;
+        text-indent: 20px;
+      }
+    }
+  }
+
+  h1 {
+    color: variables.$grey;
+    text-transform: uppercase;
+  }
+}
+
+.addButton {
+  display: flex;
+  justify-content: end;
+}
+
+table {
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+.divider {
+  height: 10px;
+}
+
+tr {
+  ::selection {
+    background: none;
+  }
+
+  th {
+    color: #fff;
+    background-color: variables.$grey;
+    text-align: start;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px;
+    cursor: pointer;
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    &:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  td {
+    width: 120px;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 10px;
+    &:last-child {
+      display: flex;
+      gap: 5px;
+    }
+  }
+  & td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  & td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+.pill-group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  background: #f4f4f4;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 0.75rem;
+  border: 0;
+  font-family: variables.$font-family;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.00875rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.status {
+  &-active {
+    color: lightseagreen;
+  }
+  &-leave {
+    color: red;
+  }
+  &-resigned {
+    color: grey;
+  }
+}
+
+button {
+  width: 100%;
+  color: variables.$grey;
+  background-color: #fff;
+  padding: 5px 20px;
+  border-radius: 1.25rem;
+  border: 2px solid variables.$grey;
+  font-family: variables.$font-family;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4rem;
+  letter-spacing: -0.00875rem;
+  text-decoration: none;
+}
