@@ -11,4 +11,8 @@ export class EmployeeService {
   get employees() {
     return users as EmployeeType[];
   }
+
+  getEmployeeById(id: string) {
+    return users.find((employee) => employee.id === parseInt(id));
+  }
 }

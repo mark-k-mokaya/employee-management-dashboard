@@ -1,0 +1,75 @@
+@use "../../../styles/variables";
+@use "../../../styles/global.scss";
+
+h1 {
+  text-transform: uppercase;
+}
+
+h4 {
+  background-color: variables.$grey;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 5px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+table {
+  background-color: #fff;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 5px;
+  text-align: start;
+
+  th,
+  td {
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-align: start;
+  }
+
+  th {
+    width: fit-content;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  background: #f4f4f4;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 0.75rem;
+  border: 0;
+  font-family: variables.$font-family;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.00875rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: -10px 0;
+}
+
+.status {
+  &-active {
+    color: lightseagreen;
+  }
+  &-leave {
+    color: red;
+  }
+  &-resigned {
+    color: grey;
+  }
+}
+
+div .graph {
+  width: 800px;
+  aspect-ratio: 2/1;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}

@@ -16,6 +16,8 @@ export class DashboardComponent {
   employees = this.employeeService.employees;
   icon = faSearch;
   searchString = '';
+  dashboardView: 'card' | 'table' = 'card';
+  showModal = false;
 
   onSearchInputChange(input: string) {
     this.searchString = input.toLowerCase();
@@ -29,7 +31,7 @@ export class DashboardComponent {
 
   onSortBy(criteria: keyof EmployeeType, target: HTMLSpanElement) {
     this.employees = this.employees.sort((a, b) => {
-      if (target.innerText == '▴') {
+      if (target.innerText == '▾') {
         return a[criteria] > b[criteria] ? 1 : -1;
       } else {
         return a[criteria] > b[criteria] ? -1 : 1;

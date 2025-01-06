@@ -12,6 +12,7 @@
     gap: 10px;
 
     span {
+      position: relative;
       .icon {
         position: absolute;
         margin: 8px 10px;
@@ -51,11 +52,11 @@ table {
 }
 
 tr {
-  ::selection {
-    background: none;
-  }
-
   th {
+    &::selection,
+    span::selection {
+      background: none;
+    }
     color: #fff;
     background-color: variables.$grey;
     text-align: start;
@@ -144,4 +145,70 @@ button {
   line-height: 1.4rem;
   letter-spacing: -0.00875rem;
   text-decoration: none;
+
+  &::selection {
+    background: none;
+  }
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  gap: 1%;
+  margin: 20px 0;
+  width: 100%;
+
+  .card {
+    background-color: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    height: 100%;
+
+    &-header {
+      font-weight: 600;
+    }
+
+    p {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+  }
+}
+
+.employee-modal {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  height: 380px;
+  width: 400px;
+
+  h3 {
+    text-transform: uppercase;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    height: fit-content;
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      height: fit-content;
+      border: 2px solid variables.$grey;
+      padding: 8px;
+      border-radius: 1.25rem;
+      outline: none;
+      font-size: 1rem;
+      text-indent: 20px;
+    }
+
+    button {
+      grid-column: 2/3;
+    }
+  }
 }

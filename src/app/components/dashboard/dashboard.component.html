@@ -1,20 +1,81 @@
+@if(!showModal){
 <div class="employee-header">
   <h1>Employees</h1>
   <div>
-    <button>Add New</button>
-    <span
-      ><fa-icon [icon]="icon" class="icon" /><input
+    <button (click)="showModal = true">Add New</button>
+    <span>
+      <fa-icon [icon]="icon" class="icon" />
+      <input
         #searchInput
         (change)="onSearchInputChange(searchInput.value)"
         [value]="searchString"
-    /></span>
+      />
+      <span
+        style="
+          position: absolute;
+          bottom: -20px;
+          right: 10px;
+          font-size: 12px;
+          color: #777;
+        "
+        >search then press enter ↵</span
+      >
+    </span>
   </div>
 </div>
-<div class="addButton"></div>
 
-Total number:
-{{ employees.length }}
+<div style="display: flex; justify-content: space-between">
+  Total number:
+  {{ employees.length }}
+  <span
+    ><a href="#" (click)="dashboardView = 'card'">Card view</a> |
+    <a href="#" (click)="dashboardView = 'table'">Table view</a></span
+  >
+</div>
 
+@if(dashboardView == 'card'){
+<div class="card-container">
+  @for(employee of employees; track employee.id){
+  <a
+    [routerLink]="['details', employee.id]"
+    routerLinkActive="router-link-active"
+    style="text-decoration: none; color: #26252d"
+  >
+    <div class="card">
+      <div class="card-content">
+        <p class="card-header">
+          {{ employee.name }}
+          <span
+            [class]="{
+              pill: true,
+              'status-active': employee.status == 'Active',
+              'status-leave': employee.status == 'On Leave',
+              'status-resigned': employee.status == 'Resigned'
+            }"
+            >{{ employee.status }}</span
+          >
+        </p>
+
+        <p style="font-style: italic">
+          {{ employee.jobTitle }}, {{ employee.department }}
+        </p>
+        <p
+          style="
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: end;
+            text-align: end;
+            width: 100%;
+          "
+        >
+          Joined: {{ employee.joiningDate }}
+        </p>
+      </div>
+    </div>
+  </a>
+  }
+</div>
+}@else if(dashboardView == 'table'){
 <table [cellSpacing]="0">
   <thead>
     <tr>
@@ -47,7 +108,7 @@ Total number:
     <tr>
       <td>
         <a
-          [routerLink]="['employees', employee.id]"
+          [routerLink]="['details', employee.id]"
           routerLinkActive="router-link-active"
           >{{ employee.name }}</a
         >
@@ -75,3 +136,36 @@ Total number:
     }
   </tbody>
 </table>
+} }@else{
+<dialog
+  
+  style="
+    background-color: #26252d;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    border: none;
+  "
+>
+<div class="modal-background" (click)="showModal = false" style="position: absolute; width: 100%; height: 100%; z-index: -1;"></div>
+  <div class="employee-modal">
+    <h3>Add New Employee</h3>
+    <form>
+      Name: <input type="text" #nameInput /> Job Title:
+      <input type="text" #jobTitleInput /> Department:
+      <input type="text" #departmentInput /> Status:
+      <select #statusInput>
+        <option value="Active">Active</option>
+        <option value="On Leave">On Leave</option>
+        <option value="Resigned">Resigned</option>
+      </select>
+      Joining Date: <input type="date" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</dialog>
+}

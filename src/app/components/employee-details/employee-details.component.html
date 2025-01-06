@@ -1,0 +1,53 @@
+<div>
+  <h1>Employee Details: {{ employee()?.name }}</h1>
+  <a routerLink="" routerLinkActive="router-link-active">
+    &lt;Back to Dashboard</a
+  >
+  <h4>Personal Details</h4>
+  <table cellspacing="5">
+    <tr>
+      <th>Full Name:</th>
+      <td>{{ employee()?.name }}</td>
+
+      <th>Job Title:</th>
+      <td>{{ employee()?.jobTitle }}</td>
+    </tr>
+    <tr>
+      <th>Department:</th>
+      <td>{{ employee()?.department }}</td>
+      <th>Status:</th>
+      <td>
+        <span
+          [class]="{
+            pill: true,
+            'status-active': employee()?.status == 'Active',
+            'status-leave': employee()?.status == 'On Leave',
+            'status-resigned': employee()?.status == 'Resigned'
+          }"
+          >{{ employee()?.status }}</span
+        >
+      </td>
+    </tr>
+    <tr>
+      <th>Joining date:</th>
+      <td>
+        {{ employee()?.joiningDate }}
+      </td>
+    </tr>
+  </table>
+  <p></p>
+
+  <div>
+    <h4>Work Achievements</h4>
+    <div class="graph">
+      <canvas id="techSkillsChart">{{ techSkillsChart }}</canvas>
+    </div>
+  </div>
+
+  <div>
+    <h4>Interpersonal Skills</h4>
+    <div class="graph">
+      <canvas id="softSkillsChart">{{ softSkillsChart }}</canvas>
+    </div>
+  </div>
+</div>

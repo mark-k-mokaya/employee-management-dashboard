@@ -18,7 +18,7 @@
   {
     "id": 3,
     "name": "Adam Smith",
-    "jobTitle": "CEO",
+    "jobTitle": "Manager",
     "department": "Management",
     "status": "Resigned",
     "joiningDate": "2021-08-10"
