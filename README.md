@@ -1,4 +1,8 @@
-# EmployeeManager
+# Employee Manager: A Frontend-Only Web Application for HR Management
+
+Frontend application built using Angular that simulates a HR management tool. The app allows users to view, search, filter, and manage employee data entirely on the frontend, leveraging Angular services and mock data for functionality.
+
+https://github.com/user-attachments/assets/e4de6509-5868-4b9b-b4e4-37da50082fac
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
 
