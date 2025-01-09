@@ -53,9 +53,14 @@ export class DashboardComponent {
   }
 
   onSubmit() {
-    this.employeeService.createEmployee(this.form?.value);
-    this.employees = this.employeeService.employees;
-    this.showModal = false;
+    if (this.form?.valid) {
+      this.employeeService.createEmployee(this.form?.value);
+      this.employees = this.employeeService.employees;
+      this.showModal = false;
+      return;
+    }
+
+    alert('Invalid form data')
   }
 
   onToggleModal() {

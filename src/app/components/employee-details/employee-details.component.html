@@ -24,17 +24,20 @@
       </button>
     </div>
     <form #form="ngForm" (ngSubmit)="onSubmit()">
-      <label>Name <input type="text" name="name" #nameInput ngModel /></label>
       <label
-        >Job Title <input type="text" name="jobTitle" #jobTitleInput ngModel
+        >Name <input type="text" name="name" #nameInput ngModel required
+      /></label>
+      <label
+        >Job Title
+        <input type="text" name="jobTitle" #jobTitleInput ngModel required
       /></label>
       <label
         >Department
-        <input type="text" name="department" #departmentInput ngModel
+        <input type="text" name="department" #departmentInput ngModel required
       /></label>
       <label
         >Status
-        <select #statusInput name="status" ngModel>
+        <select #statusInput name="status" ngModel required>
           <option value="Active">Active</option>
           <option value="On Leave">On Leave</option>
           <option value="Resigned">Resigned</option>
@@ -42,7 +45,12 @@
       >
       <label
         >Joining Date
-        <input type="date" name="joiningDate" #joiningDateInput ngModel
+        <input
+          type="date"
+          name="joiningDate"
+          #joiningDateInput
+          ngModel
+          required
       /></label>
       <button type="submit">Submit</button>
     </form>

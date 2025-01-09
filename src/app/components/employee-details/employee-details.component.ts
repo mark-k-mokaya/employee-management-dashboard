@@ -57,11 +57,19 @@ export class EmployeeDetailsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.employeeService.updateEmployee(this.employeeId(), this.form()?.value);
-    this.employee = this.employeeService.employees.find(
-      (user) => user.id == parseInt(this.employeeId())
-    );
-    this.showModal = false;
+    if (this.form()?.valid) {
+      this.employeeService.updateEmployee(
+        this.employeeId(),
+        this.form()?.value
+      );
+      this.employee = this.employeeService.employees.find(
+        (user) => user.id == parseInt(this.employeeId())
+      );
+      this.showModal = false;
+      return;
+    }
+
+    alert('Invalid form data');
   }
 
   onDelete() {
