@@ -1,37 +1,83 @@
 <div>
-  <h1>Employee Details: {{ employee()?.name }}</h1>
+  <div
+    style="display: flex; justify-content: space-between; align-items: center"
+  >
+    <h1>Employee Details: {{ employee?.name }}</h1>
+    <div style="display: flex; gap: 10px">
+      <button (click)="onToggleModal()">Edit</button>
+      <button (click)="onDelete()">Delete</button>
+    </div>
+  </div>
+
   <a routerLink="" routerLinkActive="router-link-active">
     &lt;Back to Dashboard</a
   >
+
+  @if(showModal){
+  <div class="employee-modal">
+    <div
+      style="display: flex; justify-content: space-between; align-items: center"
+    >
+      <h3>Edit Employee</h3>
+      <button class="close-btn" (click)="showModal = false">
+        <fa-icon [icon]="closeIcon" />
+      </button>
+    </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <label>Name <input type="text" name="name" #nameInput ngModel /></label>
+      <label
+        >Job Title <input type="text" name="jobTitle" #jobTitleInput ngModel
+      /></label>
+      <label
+        >Department
+        <input type="text" name="department" #departmentInput ngModel
+      /></label>
+      <label
+        >Status
+        <select #statusInput name="status" ngModel>
+          <option value="Active">Active</option>
+          <option value="On Leave">On Leave</option>
+          <option value="Resigned">Resigned</option>
+        </select></label
+      >
+      <label
+        >Joining Date
+        <input type="date" name="joiningDate" #joiningDateInput ngModel
+      /></label>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  }
+
   <h4>Personal Details</h4>
   <table cellspacing="5">
     <tr>
       <th>Full Name:</th>
-      <td>{{ employee()?.name }}</td>
+      <td>{{ employee?.name }}</td>
 
       <th>Job Title:</th>
-      <td>{{ employee()?.jobTitle }}</td>
+      <td>{{ employee?.jobTitle }}</td>
     </tr>
     <tr>
       <th>Department:</th>
-      <td>{{ employee()?.department }}</td>
+      <td>{{ employee?.department }}</td>
       <th>Status:</th>
       <td>
         <span
           [class]="{
             pill: true,
-            'status-active': employee()?.status == 'Active',
-            'status-leave': employee()?.status == 'On Leave',
-            'status-resigned': employee()?.status == 'Resigned'
+            'status-active': employee?.status == 'Active',
+            'status-leave': employee?.status == 'On Leave',
+            'status-resigned': employee?.status == 'Resigned'
           }"
-          >{{ employee()?.status }}</span
+          >{{ employee?.status }}</span
         >
       </td>
     </tr>
     <tr>
       <th>Joining date:</th>
       <td>
-        {{ employee()?.joiningDate }}
+        {{ employee?.joiningDate }}
       </td>
     </tr>
   </table>

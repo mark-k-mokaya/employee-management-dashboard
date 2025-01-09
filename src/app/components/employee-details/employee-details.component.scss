@@ -73,3 +73,77 @@ div .graph {
   padding: 10px;
   border-radius: 5px;
 }
+
+.employee-modal {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+
+  .close-btn {
+    width: max-content;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 10px;
+  }
+
+  h3 {
+    text-transform: uppercase;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: fit-content;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      height: fit-content;
+      border: 2px solid variables.$grey;
+      padding: 8px;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+      text-indent: 0px;
+      font-family: variables.$font-family;
+    }
+
+    button {
+      margin-top: 20px;
+    }
+  }
+}
+
+
+button {
+  width: 100%;
+  color: variables.$grey;
+  background-color: #fff;
+  padding: 5px 20px;
+  border-radius: 1.25rem;
+  border: 2px solid variables.$grey;
+  font-family: variables.$font-family;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4rem;
+  letter-spacing: -0.00875rem;
+  text-decoration: none;
+  cursor: pointer;
+
+  &::selection {
+    background: none;
+  }
+
+  &:hover {
+    background-color: variables.$grey;
+    color: #fff;
+  }
+}
